@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const PostForm = ({ addPost }) => {
+
+function PostForm({ addPost }) {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
 
@@ -30,6 +31,6 @@ const PostForm = ({ addPost }) => {
       <button type="submit">🎄 Post</button>
     </form>
   );
-};
+}
 
 export default PostForm;

@@ -21,7 +21,20 @@ const PostList = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
+      <h2>🎅 Community Posts</h2>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        const author = e.target.author.value;
+        const content = e.target.content.value;
+        addPost({ author, content });
+        e.target.reset();
+      }}>
+        <input name="author" placeholder="Your name" required />
+        <textarea name="content" placeholder="Share your holiday cheer..." required />
+        <button type="submit">🎄 Post</button>
+      </form>
+
       {posts.map(post => (
         <div key={post._id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
           <h3>{post.author}</h3>

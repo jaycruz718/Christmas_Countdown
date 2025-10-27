@@ -2,6 +2,8 @@ import React from 'react';
 import Countdown from './components/Countdown';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
+import MusicPlayer from './components/MusicPlayer';
+import './App.css';
 
 function App() {
   const addPost = async (post) => {
@@ -14,15 +16,21 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <Countdown />
-        <PostList />
-        <PostForm />
-        <audio autoPlay loop>
-          <source src="/christmas_music.mp3" type="audio/mp3" />
-        </audio>
+return (
+    <div className="App">
+      {/* 🎶 Background music */}
+      <audio autoPlay loop>
+        <source src="/christmas_music.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <MusicPlayer />
+      <Countdown />
+      <PostForm addPost={() => {}} />
+      <PostList />
     </div>
-    </>
+    
+  </>
   );
 }
 

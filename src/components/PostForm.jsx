@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import '../components/PostForm.css';
 
 function PostForm({ addPost }) {
   const [author, setAuthor] = useState("");
@@ -14,7 +14,7 @@ function PostForm({ addPost }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ margin: "20px", textAlign: "center" }}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Your name"

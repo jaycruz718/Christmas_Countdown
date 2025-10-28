@@ -1,12 +1,39 @@
 form {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent frosty effect */
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 100, 0.6), 0 0 40px rgba(0, 200, 255, 0.4);
   margin: 20px auto;
   width: 100%;
   max-width: 500px;
   backdrop-filter: blur(8px);
+  border: 3px solid gold; /* festive gold border */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated sparkle overlay */
+form::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0,
+    rgba(255, 255, 255, 0.1) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: sparkleMove 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes sparkleMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20%, 20%); }
 }
 
 form input,
@@ -15,14 +42,18 @@ form textarea {
   padding: 12px;
   margin: 10px 0;
   border-radius: 8px;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   font-size: 1rem;
+  z-index: 1;
+  position: relative;
+  transition: 0.3s;
 }
 
 form input:focus,
 form textarea:focus {
-  box-shadow: 0 0 8px #00ffcc; /* neon glow */
+  border: 2px solid #00ffcc; /* neon glow border */
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 form button {
@@ -31,12 +62,16 @@ form button {
   border: none;
   padding: 12px 20px;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
 }
 
 form button:hover {
-  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  background: linear-gradient(45deg, #00c851, #007e33); /* red → green swap */
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 200, 81, 0.9);
 }

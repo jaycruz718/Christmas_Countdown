@@ -1,0 +1,72 @@
+.post-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* space between posts */
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+.post-item {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c); /* red-pink festive */
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  box-shadow: 0 0 25px rgba(255, 0, 100, 0.8),
+              0 0 50px rgba(0, 200, 255, 0.6);
+  border: 3px solid gold;
+  position: relative;
+  overflow: hidden;
+  animation: glowPulse 3s infinite alternate;
+  text-align: left; /* keeps posts readable */
+}
+
+/* Animated glow */
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 20px red, 0 0 30px gold, 0 0 50px green;
+  }
+  to {
+    box-shadow: 0 0 30px gold, 0 0 60px red, 0 0 80px green;
+  }
+}
+
+/* Sparkle overlay */
+.post-item::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0,
+    rgba(255, 255, 255, 0.1) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: sparkleShift 6s linear infinite;
+}
+
+@keyframes sparkleShift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20%, 20%); }
+}
+
+/* Author name */
+.post-item .author {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: gold;
+}
+
+/* Content text */
+.post-item .content {
+  font-size: 1rem;
+  line-height: 1.5;
+}

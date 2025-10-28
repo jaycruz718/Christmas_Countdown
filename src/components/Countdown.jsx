@@ -24,7 +24,7 @@ const Countdown = () => {
 
   return (
     <div className="countdown-box">
-      <h1>🎄 Christmas Countdown 🎅</h1>
+      <h1>Christmas Countdown</h1>
       <h2>
         {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes : {timeLeft.seconds} Seconds
       </h2>

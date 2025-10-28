@@ -1,13 +1,12 @@
 .countdown-box {
   background: linear-gradient(135deg, #ff4b2b, #ff416c);
-  border-radius: 20px;
-  padding: 20px 30px;
+  border-radius: 40px;
+  padding: 30px 60px;
   text-align: center;
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: 2rem;
   box-shadow: 0 0 25px rgba(255, 0, 100, 0.8), 0 0 50px rgba(0, 200, 255, 0.6);
-  border: 3px solid gold;
   animation: pulseGlow 2s infinite alternate;
   position: relative;
   overflow: hidden;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../commentsection/CommentSection.css";
 
 const CommentSection = ({ comments, addComment }) => {
   const [author, setAuthor] = useState("");
@@ -11,28 +12,38 @@ const CommentSection = ({ comments, addComment }) => {
     setText("");
   };
 
-  return (
-    <div>
-      <h4>Comments:</h4>
-      {comments.map(c => (
-        <p key={c._id}><strong>{c.author}</strong>: {c.text}</p>
-      ))}
-      <form onSubmit={handleSubmit}>
-        <input 
+  if (!addComment) {
+    return null;
+  }
+
+   return (
+    <div className="comment-section">
+      <h4>💬 Comments</h4>
+      {comments?.length > 0 ? (
+        comments.map((c, i) => (
+          <div key={i} className="comment">
+            <strong>{c.author}</strong>: {c.text}
+          </div>
+        ))
+      ) : (
+        <p>No comments yet 🎁</p>
+      )}
+
+      <form className="comment-form" onSubmit={handleSubmit}>
+        <input
           type="text"
           placeholder="Your name"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           required
         />
-        <input 
-          type="text"
-          placeholder="Write a comment..."
+        <textarea
+          placeholder="Add a comment..."
           value={text}
           onChange={(e) => setText(e.target.value)}
           required
         />
-        <button type="submit">Reply</button>
+        <button type="submit">✨ Add Comment</button>
       </form>
     </div>
   );

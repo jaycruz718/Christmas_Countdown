@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import '../components/PostForm.css';
+import "./PostForm.css";
+
 
 function PostForm({ addPost }) {
   const [author, setAuthor] = useState("");

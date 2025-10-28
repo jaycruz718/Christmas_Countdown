@@ -1,15 +1,15 @@
 .App {
   display: flex;
-  flex-direction: column; /* stack items vertically */
-  align-items: center;    /* center horizontally */
-  justify-content: flex-start; /* center vertically */
+  flex-direction: column; 
+  align-items: center;       /* center horizontally */
+  justify-content: center;   /* ✅ center vertically */
   text-align: center;
-  min-height: 100vh; /* make it full screen */
+  min-height: 100vh;         /* fill screen height */
   position: relative;
-  z-index: 2; /* keeps content above video/snow */
-  overflow-y: auto;  /* adds a scrollbar if content is taller than screen */
+  z-index: 2;
+  overflow-y: auto;
   padding: 20px;
-  gap: 20px; /* space between boxes */
+  gap: 20px;
 }
 
 .countdown-box,
@@ -21,34 +21,45 @@
   box-sizing: border-box;
 }
 
+/* Fullscreen video background */
 .background-video {
-  position: fixed;
+  position: fixed;       /* stay in place even when scrolling */
+  top: 0;
+  left: 0;
+  width: 100vw;          /* fill screen horizontally */
+  height: 100vh;         /* fill screen vertically */
+  object-fit: cover;     /* crop so video fills without stretching */
+  z-index: -2;           /* sit behind snow & content */
+}
+
+/* Overlay snow stays above video but below content */
+.snowflakes,
+.react-snowfall {
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -2; /* very back */
-}
-
-.snowfall {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* above video, below content */
+  z-index: -1;           /* snow between video & content */
+  pointer-events: none;  /* don’t block clicks */
 }
 
 .content {
   position: relative;
-  z-index: 1; /* above everything else */
+  z-index: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;   /* ✅ vertically centered */
   padding: 20px;
-  color: white;
   text-align: center;
+  color: white;
 }
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 2s; }
+.snowflake:nth-child(3) { left: 30%; animation-duration: 8s; animation-delay: 1s; }
+.snowflake:nth-child(4) { left: 50%; animation-duration: 14s; animation-delay: 3s; }
+.snowflake:nth-child(5) { left: 70%; animation-duration: 11s; animation-delay: 4s; }
+.snowflake:nth-child(6) { left: 90%; animation-duration: 9s; animation-delay: 5s; }

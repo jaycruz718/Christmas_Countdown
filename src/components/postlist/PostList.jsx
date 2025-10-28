@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import CommentSection from "../components/CommentSection";
-import "../components/PostList.css";
+import CommentSection from "../commentsection/CommentSection";
+import "../postlist/PostList.css";
 
 const PostList = ({ addPost }) => {
   const [posts, setPosts] = useState([]);
@@ -27,30 +27,15 @@ const PostList = ({ addPost }) => {
     <div className="post-list">
       <h2>🎅 Community Posts</h2>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const author = e.target.author.value;
-          const content = e.target.content.value;
-          addPost({ author, content });
-          e.target.reset();
-        }}
-      >
-        <input name="author" placeholder="Your name" required />
-        <textarea name="content" placeholder="Share your holiday cheer..." required />
-        <button type="submit">🎄 Post</button>
-      </form>
-
       {posts.map((post) => (
         <div key={post._id} className="post-card">
           <h3>🎁 {post.author}</h3>
           <p>{post.content}</p>
           <small>{new Date(post.createdAt).toLocaleString()}</small>
-
-          <CommentSection
-            comments={post.comments}
-            addComment={(author, text) => addComment(post._id, author, text)}
-          />
+            <CommentSection
+              comments={posts.comments}
+              addComment={(author, text) => addComment(post._id, author, text)}
+            />
         </div>
       ))}
     </div>

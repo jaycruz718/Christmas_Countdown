@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../components/Countdown.css";
 
 const Countdown = () => {
   const calculateTimeLeft = () => {
@@ -22,7 +23,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div style={{ textAlign: "center", color: "white", background: "#1b1b2f", padding: "20px" }}>
+    <div className="countdown-box">
       <h1>🎄 Christmas Countdown 🎅</h1>
       <h2>
         {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes : {timeLeft.seconds} Seconds

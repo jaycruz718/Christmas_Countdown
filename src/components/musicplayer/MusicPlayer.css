@@ -1,0 +1,18 @@
+.music-btn {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(255, 75, 43, 0.6);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #00c851, #007e33);
+  box-shadow: 0 0 15px rgba(0, 200, 81, 0.8);
+}

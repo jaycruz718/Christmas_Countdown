@@ -1,0 +1,51 @@
+.countdown-box {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  border-radius: 20px;
+  padding: 20px 30px;
+  text-align: center;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 2rem;
+  box-shadow: 0 0 25px rgba(255, 0, 100, 0.8), 0 0 50px rgba(0, 200, 255, 0.6);
+  border: 3px solid gold;
+  animation: pulseGlow 2s infinite alternate;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow animation */
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 15px red, 0 0 25px gold, 0 0 40px green;
+  }
+  to {
+    box-shadow: 0 0 30px gold, 0 0 50px red, 0 0 70px green;
+  }
+}
+
+/* Sparkle overlay effect */
+.countdown-box::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0,
+    rgba(255, 255, 255, 0.1) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: sparkleMove 6s linear infinite;
+}
+
+@keyframes sparkleMove {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20%, 20%);
+  }
+}
